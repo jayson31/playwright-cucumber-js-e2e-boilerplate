@@ -2,6 +2,7 @@ const playwright = require('playwright');
 const { BeforeAll, Before, After, AfterAll , Status } = require('@cucumber/cucumber');
 const cucumber = require('../cucumber');
 const { chromium } = require("playwright");
+//const { firefox } = require("playwright");
 
 // Launch options.
 const options = {
@@ -14,6 +15,7 @@ BeforeAll(async function () {
   global.browser = await chromium.launch({
       headless: false,
       slowMo: 1000,
+      viewport: { width: 3000, height: 2000 }
   });
 
 });
