@@ -13,7 +13,7 @@ const options = {
 // Create a global browser for the test session.
 BeforeAll(async function () {
   global.browser = await chromium.launch({
-      headless: false,
+      headless: true,
       slowMo: 1000,
       viewport: { width: 3000, height: 2000 }
   });
