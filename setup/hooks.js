@@ -1,19 +1,21 @@
 const playwright = require('playwright');
 const { BeforeAll, Before, After, AfterAll , Status } = require('@cucumber/cucumber');
 const cucumber = require('../cucumber');
-
-// const { World } = require('@cucumber/cucumber')
+const { chromium } = require("playwright");
 
 // Launch options.
 const options = {
-  headless: true,
-  slowMo: 100
+  //headless: false,
+  //slowMo: 100,
 };
 
 // Create a global browser for the test session.
-BeforeAll(async () => {
-  console.log('before all ...');
-  global.browser = await playwright['firefox'].launch(options);
+BeforeAll(async function () {
+  global.browser = await chromium.launch({
+      headless: false,
+      slowMo: 1000,
+  });
+
 });
 
 AfterAll(async () => {
