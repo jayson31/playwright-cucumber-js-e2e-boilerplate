@@ -16,8 +16,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
       
       - name: Use Playwright github action
         uses: microsoft/playwright-github-action@v1
